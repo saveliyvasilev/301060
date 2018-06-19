@@ -37,7 +37,7 @@ class Simulator(object):
 	"""
 	Simulator that supports pre-defined inputs. Runs and stores statistics for each team.
 	"""
-	def __init__(self, group_matches, knockout_matches, iterations):
+	def __init__(self, group_matches, knockout_matches, iterations, instance_callbacks=[]):
 		"""
 		group_matches: the set of matches already played. The rest will be generated 
 			based on the data in fixture_data.py
@@ -62,6 +62,7 @@ class Simulator(object):
 		self._third_place_count = dict(zip(teams, [0] * len(teams)))
 		self._initialize_group_counters()
 		self._iterations = iterations
+		self._instance_callbacks = instance_callbacks
 		self._run()
 
 
@@ -204,6 +205,8 @@ class Simulator(object):
 		third_place.set_matches(self._knockout_matches)
 
 		self._update_counters(final, groups, third_place=third_place)
+		for callback in self._instance_callbacks:
+			callback(final, groups, third_place=third_place)
 
 
 	def probs_reaching_node(self):
@@ -261,7 +264,9 @@ class Simulator(object):
 if __name__ == '__main__':
 	ma1 = match.Match("RUS", "KSA", 1, 0)
 	ma2 = match.Match("EGY", "URU", 2, 0)
-	sim = Simulator([], {}, config.iterations)
+	def dummy_callback(final_node, groups, third_place):
+		print("The champion is {}".format(final_node.winner()))
+	sim = Simulator([], {}, config.iterations, instance_callbacks=[dummy_callback])
 	pppan = sim.probs_pair_playing_at_node()
 	pchamp = sim.probs_champion()
 	psecond = sim.probs_second()
