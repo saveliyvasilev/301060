@@ -19,8 +19,9 @@ gms = MatchLoader.load_group_matches() # a list
 kms = MatchLoader.load_knockout_matches() # a dict
 c = CachableSimulator(gms, kms) # it simulates and stores the simulation (or loads it if possible)
 ```
-3. you play around with the output of the simulator
+3. you play around with the output of the simulator (see `simulator.py` to get an idea of the interface of `CachableSimulator`).
 
+The MongoDB database is called worldcup18, and the collections used are `simulations`, `group_matches` and `knockout_matches`.
 ## Credits
 - Mathematical models were developed by Iván Monardo, Federico Bertero, Facundo Gutiérrez and Guillermo Durán.
 - The code of the simulator that uses the output of those models was written by Saveliy Vasiliev (the contents of the current repository).
