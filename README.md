@@ -21,6 +21,8 @@ c = CachableSimulator(gms, kms) # it simulates and stores the simulation (or loa
 ```
 3. you play around with the output of the simulator (see `simulator.py` to get an idea of the interface of `CachableSimulator`).
 
+We used 1M iterations for every simulation, but you can adjust that number in `config.py`.
+
 The MongoDB database is called worldcup18, and the collections used are `simulations`, `group_matches` and `knockout_matches`.
 ## Credits
 - Mathematical models were developed by Iván Monardo, Federico Bertero, Facundo Gutiérrez and Guillermo Durán.
