@@ -25,5 +25,4 @@ import logging
 
 file_logging_level = logging.INFO
 stream_logging_level = logging.INFO
-iterations = 10000
-langs = ["es", "en"]
+iterations = 1000000
