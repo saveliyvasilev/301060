@@ -90,7 +90,8 @@ class Group(object):
 		return self.result()[3]
 
 	def _group_sort_key(self, team):
-		return (self._points[team], self._goal_diffs[team], self._goals[team])
+		# The random.random is not the most accurate way of sorting teams in case of draw. Can be improved.
+		return (self._points[team], self._goal_diffs[team], self._goals[team], random.random())
 
 	def __str__(self):
 		s = "Group {0}:\n{1:<20} {2:^6} {3:^6} {4:^6}".format(self.id, "Team", "Pts", "Diff", "Goals")
