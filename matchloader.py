@@ -169,8 +169,8 @@ def store_worldcup():
 	MatchLoader.store_group_match(match.Match("EGY", "URU", 0, 1))
 	MatchLoader.store_group_match(match.Match("RUS", "EGY", 3, 1))
 	MatchLoader.store_group_match(match.Match("URU", "KSA", 1, 0))
-	# MatchLoader.store_group_match(match.Match("URU", "RUS", 2, 0))
-	# MatchLoader.store_group_match(match.Match("KSA", "EGY", 0, 0))
+	MatchLoader.store_group_match(match.Match("URU", "RUS", 3, 0))
+	MatchLoader.store_group_match(match.Match("KSA", "EGY", 2, 1))
 	# # B
 	MatchLoader.store_group_match(match.Match("ESP", "POR", 3, 3))
 	MatchLoader.store_group_match(match.Match("MAR", "IRN", 0, 1))
